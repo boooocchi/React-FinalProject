@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "lab": "parcel lab3/index.html"
+    "lab": "parcel lab3/index.html --open"
   },
   "keywords": [],
   "author": "",

@@ -25819,7 +25819,11 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/ChallengeOne.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/look-left.jpeg":[function(require,module,exports) {
+module.exports = "/look-left.954e7f7b.jpeg";
+},{}],"assets/look-right.jpeg":[function(require,module,exports) {
+module.exports = "/look-right.54c5bb2f.jpeg";
+},{}],"components/ChallengeOne.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25827,6 +25831,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
+var _lookLeft = _interopRequireDefault(require("../assets/look-left.jpeg"));
+var _lookRight = _interopRequireDefault(require("../assets/look-right.jpeg"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -25843,6 +25850,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+// import Image from "../assets/look-left.jpg";
 //import images
 var ChallengeOne = /*#__PURE__*/function (_Component) {
   _inherits(ChallengeOne, _Component);
@@ -25855,30 +25863,36 @@ var ChallengeOne = /*#__PURE__*/function (_Component) {
     }
     _this = _super.call.apply(_super, [this].concat(args));
     //declare the state here
-    _defineProperty(_assertThisInitialized(_this), "state", {});
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      direction: _lookLeft.default
+    });
+    //click left/right button handler goes here
+    _defineProperty(_assertThisInitialized(_this), "directionHandler", function (side) {
+      _this.setState({
+        direction: side
+      });
+    });
     return _this;
   }
   _createClass(ChallengeOne, [{
     key: "render",
-    value:
-    //click left/right button handler goes here
-    // directionHandler = (direction) => {
-    //   this.setState(() => ({ state: direction }));
-    // };
-
-    function render() {
+    value: function render() {
+      var _this2 = this;
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Challenge 1"), /*#__PURE__*/_react.default.createElement("div", {
         className: "msg"
       }, /*#__PURE__*/_react.default.createElement("img", {
         className: "ch1",
-        src: "../assets/look-".concat(this.state.direction, ".jpeg"),
-        alt: ""
+        src: this.state.direction
       })), /*#__PURE__*/_react.default.createElement("button", {
         className: "btn",
-        onClick: this.directionHandler
+        onClick: function onClick(side) {
+          return _this2.directionHandler(_lookLeft.default);
+        }
       }, "\u2B60"), /*#__PURE__*/_react.default.createElement("button", {
         className: "btn",
-        onClick: this.directionHandler
+        onClick: function onClick(side) {
+          return _this2.directionHandler(_lookRight.default);
+        }
       }, "\u2B62"));
     }
   }]);
@@ -25886,7 +25900,7 @@ var ChallengeOne = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 var _default = ChallengeOne;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/ChallengeTwo.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../assets/look-left.jpeg":"assets/look-left.jpeg","../assets/look-right.jpeg":"assets/look-right.jpeg"}],"components/ChallengeTwo.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25910,7 +25924,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var studentList = ['Randall Malfoy', 'Kvothe Black', 'Chun Zorander', 'Leomund Ridcully', 'Rary Stibbons', 'Gandalf Dresden', 'Zeddicus Doom'];
+var studentList = ["Randall Malfoy", "Kvothe Black", "Chun Zorander", "Leomund Ridcully", "Rary Stibbons", "Gandalf Dresden", "Zeddicus Doom"];
 var ChallengeTwo = /*#__PURE__*/function (_Component) {
   _inherits(ChallengeTwo, _Component);
   var _super = _createSuper(ChallengeTwo);
@@ -25925,26 +25939,45 @@ var ChallengeTwo = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       arr: []
     });
+    //componentDidMount will execute when the page has loaded (this will only run once)
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      //display the student list after 3 seconds
+      setTimeout(function () {
+        _this.setState({
+          arr: studentList
+        });
+      }, 3000);
+    });
     //random button handler
-    _defineProperty(_assertThisInitialized(_this), "randomize", function () {
-      //shuffle the array and set the state
+    _defineProperty(_assertThisInitialized(_this), "randomize", function (array) {
+      var currentIndex = array.length,
+        randomIndex;
+      while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        var _ref = [array[randomIndex], array[currentIndex]];
+        array[currentIndex] = _ref[0];
+        array[randomIndex] = _ref[1];
+      }
+      _this.setState({
+        arr: array
+      });
     });
     return _this;
   }
   _createClass(ChallengeTwo, [{
-    key: "componentDidMount",
-    value:
-    //componentDidMount will execute when the page has loaded (this will only run once)
-    function componentDidMount() {
-      //display the student list after 3 seconds
-    }
-  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Challenge 2"), /*#__PURE__*/_react.default.createElement("div", {
         className: "msg"
-      }, /*#__PURE__*/_react.default.createElement("ul", null)), /*#__PURE__*/_react.default.createElement("button", {
-        className: "btn large"
+      }, /*#__PURE__*/_react.default.createElement("ul", null, this.state.arr.map(function (student) {
+        return /*#__PURE__*/_react.default.createElement("li", null, student);
+      }))), /*#__PURE__*/_react.default.createElement("button", {
+        className: "btn large",
+        onClick: function onClick(arr) {
+          return _this2.randomize(studentList);
+        }
       }, "Randomize"));
     }
   }]);
@@ -26017,7 +26050,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62313" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62822" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
