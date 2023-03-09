@@ -4,22 +4,19 @@ import Button from "./Button";
 
 const App = () => {
   const SNSs = [
-    "instagram",
-    "facebook",
-    "youtube",
-    "github",
-    "linkedin",
-    "twitter",
+    "Instagram",
+    "Facebook",
+    "Twitter",
+    "Linkedin",
+    "Youtube",
+    "Github",
   ];
   return (
     <section>
       <div className="wrapper">
-        <Button sns={SNSs[0]} />
-        <Button sns={SNSs[1]} />
-        <Button sns={SNSs[2]} />
-        <Button sns={SNSs[3]} />
-        <Button sns={SNSs[4]} />
-        <Button sns={SNSs[5]} />
+        {SNSs.map((snsName) => (
+          <Button sns={snsName} />
+        ))}
       </div>
     </section>
   );
