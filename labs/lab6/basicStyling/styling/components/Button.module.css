@@ -1,0 +1,19 @@
+.btn {
+    background-color: royalblue;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.btnText{
+    color: white;
+}
+
+.btnSelected{
+    background-color: rgb(34, 56, 121);
+}

@@ -1,0 +1,22 @@
+html {
+  margin: 0;
+  padding: 0;
+  /* background-color: ; */
+
+  background-color: rgba(0, 0, 0, 0.818);
+  box-sizing: border-box;
+  font-family: "sans-serif";
+}
+
+.main {
+  height: 100vh;
+  margin: 0;
+  width: 100%;
+}
+
+.wrapper {
+  border: orangered 2px solid;
+  padding: 2.5rem 0rem;
+  width: 60%;
+  margin: 2rem auto 0;
+}
