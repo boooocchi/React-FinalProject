@@ -4,6 +4,7 @@ import style from "styled-components";
 
 const Post = ({ image, content, user }) => {
   const WRAPPER = style.div`
+  border-radius:10px;
 border: orangered 1px solid;
 padding:1rem;
   display:flex;

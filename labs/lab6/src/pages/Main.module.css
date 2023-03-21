@@ -16,6 +16,7 @@ html {
 
 .wrapper {
   border: orangered 2px solid;
+  border-radius: 10px;
   padding: 2.5rem 0rem;
   width: 60%;
   margin: 2rem auto 0;
