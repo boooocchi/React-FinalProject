@@ -22,6 +22,10 @@ export const Title = style.h1`
   margin-top:0;
   width:80vw;
 
+  @media (max-width: 800px) {
+    font-size:2.5rem;
+  }
+
 
 
 `;

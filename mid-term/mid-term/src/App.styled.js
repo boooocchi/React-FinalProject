@@ -14,6 +14,9 @@ border-right:1px solid rgba(200,200,0,0.5);
 width:50%;
 min-width:300px;
 max-width:700px;
+min-height:800px;
+
+
 
 `;
 
@@ -22,5 +25,7 @@ border-left:1px solid rgba(200,200,0,0.5);
 width:50%;
 min-width:300px;
 max-width:700px;
+min-height:800px;
+
 
 `;
