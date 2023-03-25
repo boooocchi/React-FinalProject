@@ -20,7 +20,7 @@ export const Title = style.h1`
   text-transform:uppercase;
   margin-bottom:2rem;
   margin-top:0;
-  width:100vw;
+  width:80vw;
 
 
 
@@ -35,7 +35,7 @@ align-items:center;
 `;
 
 export const StyledInput = style.input`
-width:30%;
+width:12rem;
 text-align:center;
 height:2.2rem;
 margin-bottom:1rem;
@@ -59,7 +59,7 @@ export const StyledButton = style.button`
 
   border-radius:10px;
   background-color:rgb(90,90,90);
-  width:20%;
+  width:10rem;
   height:2.5rem;
  line-height:2.5rem;
  padding:0;

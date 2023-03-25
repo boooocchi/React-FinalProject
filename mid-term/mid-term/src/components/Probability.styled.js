@@ -2,10 +2,10 @@ import style from "styled-components";
 
 export const Wrapper = style.div`
 position:absolute;
-z-index:10;
+z-index:1;
 bottom:8%;
 left:50%;
-padding:.5rem;
+
 transform:translate(-50%,0);
 background-color:black;
 margin:0;
