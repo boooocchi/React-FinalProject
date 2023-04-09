@@ -9,16 +9,14 @@ const Modal = (props) => {
 
   const inputRef = useRef();
   const modalRef = useRef();
-  useClickOutside(modalRef, props.editState, props.onSaveFalseEditing);
+  useClickOutside(modalRef, props.editState, () => props.setShowModal(false));
 
   return (
-    <div className={styles.overlay} style={props.editMode}>
-      <div className={styles.modal}>
-        <div ref={modalRef} className={styles.modalContent}>
+    <div className={styles.overlay}>
+      <div ref={modalRef} className={styles.modal}>
+        <div className={styles.modalContent}>
           <input ref={inputRef} type="text" defaultValue={props.todo.title} />
-          <button style={props.editMode} onClick={handleUpdateSubmit}>
-            Update
-          </button>
+          <button onClick={handleUpdateSubmit}>Update</button>
         </div>
       </div>
     </div>

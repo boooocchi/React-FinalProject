@@ -7,15 +7,6 @@ function TodoItem({ todoItem, deleteTodo }) {
   const [todo, setTodo] = useState(todoItem);
   const [editing, setEditing] = useState(false);
 
-  let viewMode = {};
-  let editMode = {};
-
-  if (editing) {
-    viewMode.display = "none";
-  } else {
-    editMode.display = "none";
-  }
-
   const handleEditing = () => {
     setEditing(true);
   };
@@ -35,12 +26,9 @@ function TodoItem({ todoItem, deleteTodo }) {
     });
   };
 
-  const falseEditing = () => {
-    setEditing(false);
-  };
   return (
     <li>
-      <div style={viewMode} className={styles.item}>
+      <div className={styles.item}>
         <input
           type="checkbox"
           checked={todo.completed}
@@ -54,13 +42,14 @@ function TodoItem({ todoItem, deleteTodo }) {
         <button onClick={handleEditing}>Edit</button>
         <button onClick={() => deleteTodo(todo.id)}>Delete</button>
       </div>
-      <Modal
-        todo={todoItem}
-        onSaveHandleUpdate={handleUpdateSubmit}
-        eiditState={editing}
-        editMode={editMode}
-        onSaveFalseEditing={falseEditing}
-      ></Modal>
+      {editing && (
+        <Modal
+          todo={todoItem}
+          onSaveHandleUpdate={handleUpdateSubmit}
+          editState={editing}
+          setShowModal={setEditing}
+        ></Modal>
+      )}
     </li>
   );
 }

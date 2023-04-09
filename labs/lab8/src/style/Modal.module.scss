@@ -17,8 +17,6 @@
   align-items: center;
   padding: 3rem 1rem;
   gap: 1em;
-  z-index: 10;
-  position: relative;
 }
 
 button {
@@ -36,11 +34,4 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.modalContent span {
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  cursor: pointer;
 }
