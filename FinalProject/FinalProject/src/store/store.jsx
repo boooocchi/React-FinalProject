@@ -1,0 +1,14 @@
+import { configureStore } from "@reduxjs/toolkit";
+import loginReducer from "./slice/loginSlice";
+import dataReducer from "./slice/dataSlice";
+
+import config from "@/config";
+
+const store = configureStore({
+  reducer: {
+    login: loginReducer,
+    datas: dataReducer
+  }
+});
+
+export default store;
