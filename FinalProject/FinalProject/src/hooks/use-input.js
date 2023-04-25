@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
 const useInput = (method) => {
   const [enteredValue, setEnteredValue] = useState("");

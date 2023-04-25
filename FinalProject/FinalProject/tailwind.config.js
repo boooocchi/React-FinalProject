@@ -20,6 +20,19 @@ module.exports = {
         blueblack: "rgb(49, 53, 57)",
         primary: "rgb(26, 172, 94)"
       }
+    },
+    screens: {
+      xs: "480px",
+
+      sm: "640px",
+      md: "768px",
+      // => @media (min-width: 640px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px"
+      // => @media (min-width: 1280px) { ... }
     }
   },
   plugins: []

@@ -26,7 +26,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  console.log(user);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
