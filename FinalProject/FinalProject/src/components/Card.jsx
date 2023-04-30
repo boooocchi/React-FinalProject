@@ -3,7 +3,7 @@ import { FaCarrot, FaLeaf } from "react-icons/Fa";
 import { GiFlour } from "react-icons/Gi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/Ai";
 import { useDispatch, useSelector } from "react-redux";
-import { useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   setFavoriteId,
   removeFavoriteId,
@@ -151,7 +151,19 @@ const Card = (props) => {
           position={cardPosition}
         ></Modal>
       )}
-      <div
+      <motion.div
+        initial={{ opacity: 0, top: "25%" }}
+        whileInView={{
+          opacity: 1,
+          position: "relative",
+          top: "0",
+          transition: {
+            type: "spring",
+            damping: 12,
+            duration: 0.5
+          }
+        }}
+        viewport={{ once: true, amount: 0.2 }}
         className="w-full  flex flex-col items-center bg-white border border-[#8080809b] rounded-md  md:flex-row  dark:border-gray-700 dark:bg-[gray-800] dark:hover:bg-[#cbcaca44] my-5 mx-auto overflow-hidden md:aspect-[3.5/2] xl:aspect-[2/1] hover:shadow-md hover:shadow-[#0000004d] hover:-translate-y-1 max-w-[500px] max-xs:h-full hover:cursor-pointer"
         onClick={cardClickHandler}
       >
@@ -175,7 +187,7 @@ const Card = (props) => {
             {vegan}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
 
     // <div>

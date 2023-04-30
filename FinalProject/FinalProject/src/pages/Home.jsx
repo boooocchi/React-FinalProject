@@ -89,20 +89,19 @@ const Home = () => {
           <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">
             <motion.h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.3rem] max-xs:mb-0">
               <motion.span
-                initial={{ top: "50%", opacity: 0 }}
+                initial={{ top: "-1000px", opacity: 0 }}
                 animate={{
-                  top: "0",
+                  top: "0px",
                   position: "relative",
                   opacity: 1,
 
                   transition: {
-                    duration: 0.05,
+                    duration: 1,
                     type: "spring",
                     damping: 10,
                     delay: 1.5
                   }
                 }}
-                className="relative"
               >
                 SMART{isMobile && <br />} RECIPE
               </motion.span>
@@ -118,7 +117,7 @@ const Home = () => {
           onLoad={handleImageLoad}
         />
       )}
-      {datas ? (
+      {datas && !isLoading ? (
         <RandomMenu datas={datas} />
       ) : (
         <div
