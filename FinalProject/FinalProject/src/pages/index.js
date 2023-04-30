@@ -4,4 +4,8 @@ import Login from "./Login";
 
 import SearchResult from "./SearchResult";
 
-export { Home, Login, SearchResult };
+import Favorites from "./Favorites";
+
+import Register from "./Register";
+
+export { Home, Login, SearchResult, Favorites, Register };

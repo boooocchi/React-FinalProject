@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 
 //router related
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Outlet,
-  Navigate
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //pages
-import { Home, Login, SearchResult } from "@/pages";
+import { Home, Login, SearchResult, Favorites, Register } from "@/pages";
 
 //redux
 
@@ -22,22 +16,19 @@ import { Home, Login, SearchResult } from "@/pages";
 // };
 // const user = useSelector((state) => state.user.user);
 
-function App() {
-  // useEffect(() => {
-  //   console.log("hi");
-  // });
+function AppRoute() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route element={<PrivateRoute user={user} />}> */}
         <Route path="/" element={<Home />} />
-        {/* <Route path="/result" element */}
-        {/* </Route> */}
+
         <Route path="/login" element={<Login />} />
         <Route path="/searchresult/*" element={<SearchResult />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default AppRoute;

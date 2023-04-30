@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import Header from "@/components/Header";
 import SearchRecipeForm from "@/components/SearchRecipeForm";
 import RandomMenu from "@/components/RandomMenu";
+import Footer from "@/components/Footer";
 
 //key
 import { config2 } from "../config";
@@ -17,10 +18,14 @@ import { setData } from "../store/slice/dataSlice";
 import homeBackgroundPic from "@/assets/homeBackground.jpg";
 import homeBackgroundPic2 from "@/assets/homeBackground2.jpg";
 
-//router
-import { useNavigate } from "react-router";
+//hooks
+import useFavorite from "../hooks/useFavorite";
+
+//animation
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const { tableHandler } = useFavorite();
   const datas = useSelector((state) => {
     return state.datas.data;
   });
@@ -45,27 +50,45 @@ const Home = () => {
       options
     );
     const data = await result.json();
-    console.log(data);
     dispatch(setData(data));
-    console.log(datas);
+  };
+
+  //animation variavle
+  const container = {
+    hidden: { opacity: 0, y: 40, filter: "grayscale(100%)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "grayscale(0%)",
+
+      transition: {
+        duration: 1,
+        type: "spring",
+        damping: 12
+      }
+    }
   };
 
   useEffect(() => {
-    fetchRandomData();
+    tableHandler();
+    if (!datas) {
+      fetchRandomData();
+    }
+    // tableHandler();
   }, []);
 
   return (
-    <>
+    <div variants={container} initial="hidden" animate="show">
       <Header></Header>
 
-      <div className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[4.5/5] min-h-[450px]">
+      <div className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] min-h-[450px]">
         <img
           src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}
           alt="Homepage background picture"
           className="object-cover min-h-[450px]"
         />
         <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">
-          <h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.5rem]">
+          <h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.3rem] max-xs:mb-0">
             <span>SMART{isMobile && <br />} RECIPE</span>
           </h1>
           <SearchRecipeForm />
@@ -74,7 +97,10 @@ const Home = () => {
       {datas ? (
         <RandomMenu datas={datas} />
       ) : (
-        <div role="status" className="flex items-center justify-center w-full">
+        <div
+          role="status"
+          className="flex items-center justify-center w-full h-[15rem]"
+        >
           <svg
             aria-hidden="true"
             className="w-[5rem] h-[5rem] mr-2 text-[gray] animate-spin dark:text-[gray] fill-primary"
@@ -94,7 +120,8 @@ const Home = () => {
           <span className="sr-only">Loading...</span>
         </div>
       )}
-    </>
+      <Footer></Footer>
+    </div>
   );
 };
 

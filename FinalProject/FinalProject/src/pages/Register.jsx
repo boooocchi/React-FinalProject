@@ -1,8 +1,8 @@
 import React from "react";
-import loginPage from "@/assets/loginPage.jpg";
+import registerPage from "@/assets/registerImage.jpg";
 import Input from "@/components/Input";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Button from "@/components/Button";
 
 import { setUser } from "../store/slice/loginSlice";
@@ -18,15 +18,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRef, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
-import { Link } from "react-router-dom";
-
-const Login = () => {
+const Register = () => {
   const emailRef = useRef();
   const passRef = useRef();
+  const passRef2 = useRef();
   const user = useSelector((state) => state.login.user);
+  const [disableBtn, setDisableBtn] = useState(false);
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -50,13 +49,40 @@ const Login = () => {
     return value.trim().length >= 8;
   });
 
-  const loginHandler = async (e) => {
-    e.preventDefault();
+  const {
+    enteredValue: passValue2,
+    reset: passReset2,
+    inputValueHandler: pass2Handler
+  } = useInput();
 
+  const registerHandler = async (e) => {
+    e.preventDefault(true);
+    setIsSubmitted(true);
+    if (passRef.current.value !== passRef2.current.value) {
+      setDisableBtn(true);
+      toast.error("passwords are different", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
+      return;
+    }
+    //validation
+    if (!passValidation || !emailValidation) {
+      setDisableBtn(true);
+      return;
+    }
+    setDisableBtn(false);
+    console.log(emailRef.current.value, passRef.current.value);
     const {
       data: { user },
       error
-    } = await supabase.auth.signInWithPassword({
+    } = await supabase.auth.signUp({
       email: emailRef.current.value,
       password: passRef.current.value
     });
@@ -72,14 +98,15 @@ const Login = () => {
         progress: undefined,
         theme: "colored"
       });
-      setIsSubmitted(true);
+
       emailReset();
       passReset();
+      passReset2();
     }
     if (user) {
-      toast.success("Login successul!!", {
+      toast.success("register successul!!", {
         position: "top-center",
-        autoClose: 5000,
+
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -87,16 +114,15 @@ const Login = () => {
         progress: undefined,
         theme: "colored"
       });
-      dispatch(setUser(user));
 
-      navigate("/");
+      navigate("/login");
     }
 
     // dispatch(setUser(user));
   };
   return (
     <>
-      <section className="bg-[url('@/assets/loginBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom text-blueblack min-w-[300px]">
+      <section className="bg-[url('@/assets/registerBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom min-w-[300px]">
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -109,19 +135,22 @@ const Login = () => {
           pauseOnHover
           theme="light"
         />
-        <div className="w-full h-full flex items-center backdrop-blur-sm ">
-          <div className="w-[750px]  flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white] max-md:w-[630px] max-sm:aspect-[3/4] max-sm:flex-col max-sm:relative  max-sm:justify-center max-sm:w-[95%] ">
+        <div className="w-full h-full flex items-center backdrop-blur-sm">
+          <div className="w-[750px]  flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white] max-md:w-[630px] max-sm:aspect-[3/4] max-sm:flex-col max-sm:relative  max-sm:justify-center max-sm:w-[95%]">
             <form
               action=""
-              className="flex flex-col w-[40%] font-main items-center gap-[0.4rem] max-sm:relative max-sm:z-10 max-sm:bg-[rgba(255,255,255,0.7)] max-sm:rounded-lg max-sm:py-5 max-sm:px-4 max-sm:w-4/5 max-sm:h-4/5 max-sm:justify-center max-xs:gap-[0.1rem]"
+              className="flex flex-col w-[40%] font-main items-center gap-[0.4rem] max-sm:relative max-sm:z-10 max-sm:bg-[rgba(255,255,255,0.7)] max-sm:rounded-lg max-sm:py-5 max-sm:px-4 max-sm:w-4/5 max-sm:h-[85%] max-sm:justify-center max-xs:gap-[0.1rem] max-md:gap-[0.2rem]"
             >
-              <h2 className="font-main mb-[-.5rem] max-xs:text-[0.9rem] ">
+              <h2 className="font-main mb-[-.5rem] max-xs:text-[0.9rem] max-md:mb-[-1rem]">
                 welcome to
               </h2>
-              <h1 className="mb-5 font-title text-[2rem] max-xs:mb-2 max-xs:text-[1.5rem]">
+              <h1 className="mb-5 font-title text-[2rem] max-xs:mb-2 max-xs:text-[1.5rem] max-md:mb-2">
                 SmartRecipe
               </h1>
-              <label htmlFor="email" className="text-center text-[1.1rem] ">
+              <label
+                htmlFor="email"
+                className="text-center text-[1.1rem] -mb-1 max-xs:text-[0.9rem]"
+              >
                 Email
               </label>
               <Input
@@ -131,13 +160,13 @@ const Login = () => {
                 onChange={emailInputHandler}
               />
               {!emailValidation && isSubmitted && (
-                <p className=" text-[red] text-[0.9rem]">
+                <p className=" text-[red] text-[0.9rem] -mt-4">
                   This email is invalid
                 </p>
               )}
               <label
                 htmlFor="password"
-                className="mt-2 text-center text-[1.1rem]"
+                className="-mb-1 text-center text-[1.1rem] max-xs:text-[0.9rem]"
               >
                 Password
               </label>
@@ -148,28 +177,43 @@ const Login = () => {
                 onChange={passInputHandler}
               />
               {!passValidation && isSubmitted && (
-                <p className=" text-[red] text-[0.9rem]">
+                <p className=" text-[red] text-[0.9rem] -mt-4">
                   password has be longer than 8 letters
                 </p>
               )}
+              <label
+                htmlFor="password2"
+                className=" -mb-1 text-center text-[1.1rem]  max-xs:text-[0.9rem]"
+              >
+                Confirm Password
+              </label>
+              <Input
+                ref={passRef2}
+                type="password"
+                value={passValue2}
+                onChange={pass2Handler}
+              />
 
               <Button
-                onClick={loginHandler}
+                onClick={registerHandler}
                 type="submit"
-                className="btn bg-primary w-[100px] text-[white] rounded-[10px] px-1 py-[0.3rem] mt-8 text-[1.1rem]"
+                disable={disableBtn}
               >
-                Login
+                Sign up
               </Button>
-              <Link to="/register" className="hover:text-accent">
-                don't have an account? →
+              <Link
+                to="/login"
+                className="hover:text-primary  max-xs:text-[0.9rem]"
+              >
+                ← Login
               </Link>
             </form>
 
             <div className="w-[60%] max-sm:absolute max-sm:z-1 max-sm:w-full">
               <img
                 className="  w-full"
-                src={loginPage}
-                alt="login page picture"
+                src={registerPage}
+                alt="register page picture"
               />
             </div>
           </div>
@@ -179,4 +223,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

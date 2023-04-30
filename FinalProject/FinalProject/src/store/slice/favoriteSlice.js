@@ -9,15 +9,19 @@ const favoriteSlice = createSlice({
   initialState: initialFavoriteState,
   reducers: {
     setFavoriteId(state, action) {
+      state.favoritesId = action.payload;
+    },
+    addFavoriteId(state, action) {
       state.favoritesId.push(action.payload);
     },
     removeFavoriteId(state, action) {
-      state.favoritesId = state.favoritesId.filter((id) => {
-        return id !== action.payload;
+      state.favoritesId = state.favoritesId.filter((data) => {
+        return data.id !== action.payload;
       });
     }
   }
 });
 
-export const { setFavoriteId, removeFavoriteId } = favoriteSlice.actions;
+export const { addFavoriteId, removeFavoriteId, setFavoriteId } =
+  favoriteSlice.actions;
 export default favoriteSlice.reducer;

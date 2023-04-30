@@ -40,9 +40,6 @@ const SearchResult = () => {
         throw new Error(`No Recipe`);
       }
       setSearchedResults(result);
-
-      console.log(searchedResults);
-      console.log(result);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -57,11 +54,15 @@ const SearchResult = () => {
   const recipes = searchedResults.results ? (
     searchedResults.results.map((result) => (
       <Card
+        key={result.id}
         title={result.title}
         img={result.image}
         vegan={result.vegan}
         vegetarian={result.vegetarian}
         glutenFree={result.glutenFree}
+        id={result.id}
+        instruction={result.analyzedInstructions}
+
         // id={result}
       ></Card>
     ))

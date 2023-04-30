@@ -16,8 +16,12 @@ const SearchRecipeForm = () => {
     "vegetarian"
   ];
 
-  const dietsOptions = diets.map((diet) => {
-    return <option value={diet}>{diet}</option>;
+  const dietsOptions = diets.map((diet, i) => {
+    return (
+      <option key={i} value={diet}>
+        {diet}
+      </option>
+    );
   });
 
   const navigate = useNavigate();
@@ -76,13 +80,20 @@ const SearchRecipeForm = () => {
       <label htmlFor="diet" className="max-xs:text-[0.9rem]">
         Choose a diet type:
       </label>
-      <select id="diet" name="diet" className={inputClass} ref={dietInputRef}>
-        <option value="">---</option>
+      <select
+        id="diet"
+        name="diet"
+        className="w-[15rem] px-1 rounded-md  border border-slategray max-lg:h-8 max-[480px]:w-[85%] leading-10"
+        ref={dietInputRef}
+      >
+        <option value="" className="">
+          ---
+        </option>
         {dietsOptions}
       </select>
 
       <Button onClick={searchInputHandler} type="submit">
-        search
+        Search
       </Button>
     </form>
   );

@@ -7,7 +7,7 @@ const Input = forwardRef(function Input(props, ref) {
       ref={ref}
       value={props.value}
       onChange={props.onChange}
-      className="border-blueblack border-solid border rounded-[10px] px-2"
+      className="w-[11rem] text-blueblack border-blueblack border-solid border rounded-[10px] px-3 pt-[2px] pb-[4px]  mb-2 max-sm:w-[80%] max-xs:text-[0.9rem] "
     />
   );
 });

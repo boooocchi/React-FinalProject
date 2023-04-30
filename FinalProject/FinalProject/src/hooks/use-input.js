@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useInput = (method) => {
+const useInput = (method = () => {}) => {
   const [enteredValue, setEnteredValue] = useState("");
   const validation = method(enteredValue);
   // const user = useSelector((state) => {
