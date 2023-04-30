@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 //components
@@ -30,6 +30,7 @@ const Home = () => {
     return state.datas.data;
   });
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
 
   // responsive
   const isTablet = useMediaQuery({ query: "(max-width: 767px)" });
@@ -53,21 +54,10 @@ const Home = () => {
     dispatch(setData(data));
   };
 
-  //animation variavle
-  const container = {
-    hidden: { opacity: 0, y: 40, filter: "grayscale(100%)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "grayscale(0%)",
-
-      transition: {
-        duration: 1,
-        type: "spring",
-        damping: 12
-      }
-    }
+  const handleImageLoad = () => {
+    setIsLoading(false);
   };
+  //animation variavle
 
   useEffect(() => {
     tableHandler();
@@ -78,22 +68,56 @@ const Home = () => {
   }, []);
 
   return (
-    <div variants={container} initial="hidden" animate="show">
+    <div>
       <Header></Header>
 
-      <div className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] min-h-[450px]">
+      {!isLoading ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { duration: 1.5 }
+          }}
+          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] min-h-[450px]"
+        >
+          <img
+            src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}
+            alt="Homepage background picture"
+            className="object-cover min-h-[450px]"
+            onLoad={handleImageLoad}
+          />
+          <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">
+            <motion.h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.3rem] max-xs:mb-0">
+              <motion.span
+                initial={{ top: "50%", opacity: 0 }}
+                animate={{
+                  top: "0",
+                  position: "relative",
+                  opacity: 1,
+
+                  transition: {
+                    duration: 0.05,
+                    type: "spring",
+                    damping: 10,
+                    delay: 1.5
+                  }
+                }}
+                className="relative"
+              >
+                SMART{isMobile && <br />} RECIPE
+              </motion.span>
+            </motion.h1>
+            <SearchRecipeForm />
+          </div>
+        </motion.div>
+      ) : (
         <img
           src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}
           alt="Homepage background picture"
-          className="object-cover min-h-[450px]"
+          className="object-cover min-h-[450px] opacity-0"
+          onLoad={handleImageLoad}
         />
-        <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">
-          <h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.3rem] max-xs:mb-0">
-            <span>SMART{isMobile && <br />} RECIPE</span>
-          </h1>
-          <SearchRecipeForm />
-        </div>
-      </div>
+      )}
       {datas ? (
         <RandomMenu datas={datas} />
       ) : (

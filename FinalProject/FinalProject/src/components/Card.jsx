@@ -3,6 +3,7 @@ import { FaCarrot, FaLeaf } from "react-icons/Fa";
 import { GiFlour } from "react-icons/Gi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/Ai";
 import { useDispatch, useSelector } from "react-redux";
+import { useMotionValue } from "framer-motion";
 import {
   setFavoriteId,
   removeFavoriteId,
@@ -13,9 +14,14 @@ import { supabase } from "@/lib/supabaseClient";
 import Modal from "@/components/Modal";
 
 const Card = (props) => {
+  // const cardRef = useRef(null);
   let gluten = <GiFlour color="rgb(133,141,149)"></GiFlour>;
   let vegetarian = <FaCarrot color="rgb(133, 141, 149)"></FaCarrot>;
   let vegan = <FaLeaf color="rgb(133, 141, 149)"></FaLeaf>;
+  const [cardPosition, setCardPosition] = useState({
+    cardLeft: null,
+    cardTop: null
+  });
 
   const [modal, setModal] = useState(false);
 
@@ -79,7 +85,7 @@ const Card = (props) => {
     deleteData(id);
   };
 
-  const hi = favoriteLists.filter((menu) => {
+  const added = favoriteLists.filter((menu) => {
     return menu.id === props.id;
   });
 
@@ -102,7 +108,7 @@ const Card = (props) => {
       }
     />
   );
-  if (hi.length > 0) {
+  if (added.length > 0) {
     heart = (
       <AiFillHeart
         className="text-[1.3rem]"
@@ -124,7 +130,12 @@ const Card = (props) => {
   }
 
   //modal handler
-  const cardClickHandler = () => {
+  const cardClickHandler = (e) => {
+    // Get position of clicked card
+    const cardRect = e.target.getBoundingClientRect();
+    setCardPosition({ cardLeft: cardRect.left, cardTop: cardRect.top });
+    // Animate ModalWindow to card position
+
     setModal(true);
   };
   const closeModalHandler = () => {
@@ -137,6 +148,7 @@ const Card = (props) => {
         <Modal
           instruction={props.instruction}
           closeModalHandler={closeModalHandler}
+          position={cardPosition}
         ></Modal>
       )}
       <div

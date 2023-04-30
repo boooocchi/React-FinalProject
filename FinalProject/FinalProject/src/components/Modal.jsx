@@ -9,21 +9,22 @@ const Backdrop = (props) => {
   );
 };
 const ModalWindow = (props) => {
+  const x = props.position.cardLeft;
+  const y = props.position.cardTop;
   return (
     <motion.div
       initial={{
-        position: "fixed", // set position to fixed
-        top: "50%", // center vertically
-        left: "50%", // center horizontally
-        scale: 0.4
+        left: x,
+        top: y,
+        opacity: 0,
+        transform: "translate(-25%, -10%) scale(0.3)"
       }}
       animate={{
-        scale: 1,
-
-        position: "fixed", // set position to fixed
-        top: "50%", // center vertically
-        left: "50%", // center horizontally
-        transform: "translate(-50%, -50%)", // move up and left by half of its own height and width
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        opacity: 1,
+        transform: "translate(-50%, -50%)",
 
         transition: { duration: 0.3 }
       }}
@@ -57,24 +58,24 @@ const Modal = (props) => {
     const set = new Set(ingredientsArr);
     const ingredientsArr2 = [...set];
 
-    ingredients = ingredientsArr2.map((ingredient) => [
-      <div className="">{ingredient}</div>
+    ingredients = ingredientsArr2.map((ingredient, i) => [
+      <div className="" key={i}>
+        {ingredient}
+      </div>
     ]);
 
     instructions = props.instruction[0].steps.map((instruction, i) => {
       return (
-        <>
-          <div className="mb-3">
-            {i + 1}: &nbsp;{instruction.step}
-          </div>
-        </>
+        <div className="mb-3" key={i}>
+          {i + 1}: &nbsp;{instruction.step}
+        </div>
       );
     });
   }
 
   return (
     <>
-      <ModalWindow>
+      <ModalWindow position={props.position}>
         {props.instruction[0] ? (
           <>
             <h2 className="text-[1.2rem] mb-1 font-title">Ingredients</h2>
