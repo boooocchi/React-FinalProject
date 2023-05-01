@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 const Backdrop = (props) => {
   return (
     <div
@@ -31,7 +34,7 @@ const ModalWindow = (props) => {
 
         transition: { duration: 0.3 }
       }}
-      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-scroll font-main max-w-[1000px]"
+      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-scroll font-main max-w-[1000px] max-xs:w-[90%]"
     >
       {props.children}
     </motion.div>
@@ -81,14 +84,19 @@ const Modal = (props) => {
       <ModalWindow position={props.position} size={props.size}>
         {props.instruction[0] ? (
           <>
-            <h2 className="text-[1.2rem] mb-1 font-title">Ingredients</h2>
+            <FontAwesomeIcon
+              icon={faX}
+              className="absolute right-6 top-5"
+              onClick={props.onClose}
+            />
+            <h2 className="text-[1.2rem] mb-2 font-title">Ingredients</h2>
             <div
-              className=" h-[250px] flex flex-col flex-wrap mb-4 gap-[10px] max-xs:h-[200px]
+              className="grid grid-cols-2  mb-7 gap-y-2  gap-x-1 w-[90%]
             "
             >
               {ingredients}
             </div>
-            <h2 className="text-[1.2rem] mb-1 font-title">Instruction</h2>
+            <h2 className="text-[1.2rem] mb-2 font-title">Instruction</h2>
             <div>{instructions}</div>
           </>
         ) : (

@@ -159,6 +159,7 @@ const Card = (props) => {
           closeModalHandler={closeModalHandler}
           position={cardPosition}
           size={cardSize}
+          onClose={closeModalHandler}
         ></Modal>
       )}
       <motion.div
@@ -179,11 +180,17 @@ const Card = (props) => {
         onClick={cardClickHandler}
       >
         <div className="w-[60%] overflow-hidden md:aspect-square max-md:w-full max-md:h-[14rem]">
-          <img
-            className="object-cover h-full max-md:w-full max-md:scale-[1.2]"
-            src={props.img}
-            alt=""
-          />
+          {props.img ? (
+            <img
+              className="object-cover h-full max-md:w-full max-md:scale-[1.2]"
+              src={props.img}
+              alt=""
+            />
+          ) : (
+            <div className="flex justify-center items-center font-main h-full  border-[0.1px]">
+              No Image
+            </div>
+          )}
         </div>
         <div className="md:h-[90%] w-[40%] flex flex-col justify-between p-5 max-lg:px-3 max-lg:py-4 max-md:h-[50%] leading-normal max-md:w-[95%] max-md:">
           <span>{heart}</span>

@@ -15,8 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../store/slice/dataSlice";
 
 //picture
-import homeBackgroundPic from "@/assets/HomeBackground.jpg";
-import homeBackgroundPic2 from "@/assets/HomeBackground2.jpg";
+import homeBackgroundPic from "@/assets/HomePageBackground.jpg";
+import homeBackgroundPic2 from "@/assets/HomePageBackground2.jpg";
 
 //hooks
 import useFavorite from "../hooks/useFavorite";
@@ -70,7 +70,6 @@ const Home = () => {
   return (
     <div>
       <Header></Header>
-
       {!isLoading ? (
         <motion.div
           initial={{ opacity: 0 }}
@@ -78,7 +77,7 @@ const Home = () => {
             opacity: 1,
             transition: { duration: 1.5 }
           }}
-          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-xs:aspect-[3/5] min-h-[450px] "
+          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] max-xs:aspect-[3/5] min-h-[450px] "
         >
           <img
             src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}

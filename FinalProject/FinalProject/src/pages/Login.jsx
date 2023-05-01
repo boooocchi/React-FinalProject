@@ -1,5 +1,5 @@
 import React from "react";
-import loginPage from "@/assets/loginPage.jpg";
+import loginPage from "@/assets/LoginPageImg.jpg";
 import Input from "@/components/Input";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -96,7 +96,7 @@ const Login = () => {
   };
   return (
     <>
-      <section className="bg-[url('@/assets/loginBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom text-blueblack min-w-[300px]">
+      <section className="bg-[url('@/assets/LoginPageBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom text-blueblack min-w-[300px]">
         <ToastContainer
           position="top-right"
           autoClose={5000}

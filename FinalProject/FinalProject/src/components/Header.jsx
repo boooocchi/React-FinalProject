@@ -1,11 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/bi";
+// import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slice/loginSlice";
 import { useNavigate } from "react-router";
 import { setData } from "@/store/slice/dataSlice";
 import { Link } from "react-router-dom";
-import { MdMenuBook } from "react-icons/md";
+// import { MdMenuBook } from "react-icons/md";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUtensils,
+  faUser,
+  faRightFromBracket,
+  faHeart
+} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -65,31 +73,43 @@ const Header = () => {
           className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
           onClick={backHomeHandler}
         >
-          <BiRestaurant
+          <FontAwesomeIcon
+            icon={faUtensils}
+            className="text-[1.7rem] max-xs:text-[1.6rem] mr-1"
+          />
+          {/* <BiRestaurant
             className="text-[1.7rem] max-xs:text-[1.6rem]
           ]"
-          />
+          /> */}
           <span className="font-title  text-[1.1rem] max-xs:leading-[.9rem] max-xs:text-[1rem]">
             SMART RECIPE
           </span>
         </div>
         <ul className="flex items-center gap-2 max-xs:gap-[0.1rem]">
           <li className="flex items-center relative " ref={wrapperRef}>
-            <BiUserCircle
-              className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
+            <FontAwesomeIcon
+              icon={faUser}
+              className="text-[1.5rem] mr-4 text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
               onClick={userMenuHandler}
             />
+            {/* <BiUserCircle
+              className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
+              onClick={userMenuHandler}
+            /> */}
             {userMenu && (
               <div
                 ref={menuRef}
-                className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-9 max-xs:w-[200px] max-xs:right-[21%] right-[-20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] "
+                className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-10 max-xs:w-[200px] max-xs:right-[10%] right-[20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] max-md:right-[25%]"
               >
                 <ul className="px-2 py-6 font-main flex flex-col items-center">
                   <Link
                     to="/favorites"
-                    className="flex items-center justify-center gap-2 hover:text-primary h-[2rem] border-b-[2px] pb-1 border-b-blueblack w-[60%]   hover:border-b-primary"
+                    className="flex items-center justify-center gap-2 hover:text-primary h-[2rem] border-b-[2px] pb-1 border-b-blueblack w-[70%]   hover:border-b-primary"
                   >
-                    <MdMenuBook className="text-[1.5rem] leading-[1.5rem]" />{" "}
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      className="text-[1.2rem] leading-[1.5rem] mr-1"
+                    />
                     Favorite Recipes
                   </Link>
                 </ul>
@@ -97,7 +117,10 @@ const Header = () => {
             )}
           </li>
           <li className="flex items-center" onClick={logOutHandler}>
-            <BiLogOut className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer" />
+            <FontAwesomeIcon
+              icon={faRightFromBracket}
+              className="text-[1.4rem] text-blueblack hover:text-white hover:cursor-pointer"
+            />
           </li>
         </ul>
       </nav>

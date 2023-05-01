@@ -1,11 +1,10 @@
 import React from "react";
-import registerPage from "@/assets/registerImage.jpg";
+import registerPage from "@/assets/RegisterPageImg.jpg";
 import Input from "@/components/Input";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
 import Button from "@/components/Button";
 
-import { setUser } from "../store/slice/loginSlice";
 //
 import { useDispatch, useSelector } from "react-redux";
 
@@ -122,7 +121,7 @@ const Register = () => {
   };
   return (
     <>
-      <section className="bg-[url('@/assets/registerBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom min-w-[300px]">
+      <section className="bg-[url('@/assets/RegisterPageBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom min-w-[300px]">
         <ToastContainer
           position="top-right"
           autoClose={5000}

@@ -6,6 +6,7 @@ import { config2 } from "../config";
 import { useEffect, useState, useCallback } from "react";
 import Card from "@/components/Card";
 import SearchRecipeForm from "@/components/SearchRecipeForm";
+import Footer from "@/components/Footer";
 
 const SearchResult = () => {
   // const params = useParams();
@@ -78,7 +79,7 @@ const SearchResult = () => {
   let sectionClassName = "";
   if (!isLoading && !error) {
     sectionClassName =
-      "pt-[5rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-5 max-xs:pt-[3rem]";
+      "pt-[1rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-5 max-xs:pt-[3rem] mb-5 max-xs:mb-[4rem] max-xs:pt-1";
   }
 
   // const query = new URLSearchParams(search);
@@ -86,6 +87,9 @@ const SearchResult = () => {
   return (
     <>
       <Header></Header>
+      <h1 className="pt-[6rem] font-main text-center">
+        Search Result with: "{query}"
+      </h1>
       <section className={sectionClassName}>
         {!isLoading ? (
           recipes
@@ -114,6 +118,7 @@ const SearchResult = () => {
           </div>
         )}
       </section>
+      <Footer></Footer>
     </>
   );
 };
