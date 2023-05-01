@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaCarrot, FaLeaf } from "react-icons/fa";
 import { GiFlour } from "react-icons/gi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -18,9 +18,14 @@ const Card = (props) => {
   let gluten = <GiFlour color="rgb(133,141,149)"></GiFlour>;
   let vegetarian = <FaCarrot color="rgb(133, 141, 149)"></FaCarrot>;
   let vegan = <FaLeaf color="rgb(133, 141, 149)"></FaLeaf>;
+  const cardRef = useRef();
   const [cardPosition, setCardPosition] = useState({
     cardLeft: null,
     cardTop: null
+  });
+  const [cardSize, setCardSize] = useState({
+    width: null,
+    height: null
   });
 
   const [modal, setModal] = useState(false);
@@ -130,10 +135,15 @@ const Card = (props) => {
   }
 
   //modal handler
-  const cardClickHandler = (e) => {
+  const cardClickHandler = () => {
     // Get position of clicked card
-    const cardRect = e.target.getBoundingClientRect();
+    const cardRect = cardRef.current.getBoundingClientRect();
+    setCardSize({
+      width: cardRef.current.clientWidth,
+      height: cardRef.current.clientHeight
+    });
     setCardPosition({ cardLeft: cardRect.left, cardTop: cardRect.top });
+
     // Animate ModalWindow to card position
 
     setModal(true);
@@ -141,7 +151,6 @@ const Card = (props) => {
   const closeModalHandler = () => {
     setModal(false);
   };
-
   return (
     <>
       {modal && (
@@ -149,9 +158,11 @@ const Card = (props) => {
           instruction={props.instruction}
           closeModalHandler={closeModalHandler}
           position={cardPosition}
+          size={cardSize}
         ></Modal>
       )}
       <motion.div
+        ref={cardRef}
         initial={{ opacity: 0, top: "25%" }}
         whileInView={{
           opacity: 1,

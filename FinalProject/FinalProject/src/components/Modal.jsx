@@ -11,13 +11,16 @@ const Backdrop = (props) => {
 const ModalWindow = (props) => {
   const x = props.position.cardLeft;
   const y = props.position.cardTop;
+
+  const w = props.size.width / 2;
+  const h = props.size.height / 2;
   return (
     <motion.div
       initial={{
         left: x,
         top: y,
         opacity: 0,
-        transform: "translate(-25%, -10%) scale(0.3)"
+        transform: `translate(-${w}px,-${h}px) scale(0.1)`
       }}
       animate={{
         position: "fixed",
@@ -75,7 +78,7 @@ const Modal = (props) => {
 
   return (
     <>
-      <ModalWindow position={props.position}>
+      <ModalWindow position={props.position} size={props.size}>
         {props.instruction[0] ? (
           <>
             <h2 className="text-[1.2rem] mb-1 font-title">Ingredients</h2>

@@ -84,15 +84,14 @@ const Header = () => {
                 ref={menuRef}
                 className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-9 max-xs:w-[200px] max-xs:right-[21%] right-[-20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] "
               >
-                <ul className="px-2 py-5 font-main flex flex-col items-center">
-                  <li className="border-b-[2px] pb-1 border-b-blueblack w-[70%] ">
-                    <Link
-                      to="/favorites"
-                      className="flex items-center justify-center gap-2 hover:text-primary "
-                    >
-                      <MdMenuBook className="text-[1.5rem] " /> Favorite Recipes
-                    </Link>
-                  </li>
+                <ul className="px-2 py-6 font-main flex flex-col items-center">
+                  <Link
+                    to="/favorites"
+                    className="flex items-center justify-center gap-2 hover:text-primary h-[2rem] border-b-[2px] pb-1 border-b-blueblack w-[60%]   hover:border-b-primary"
+                  >
+                    <MdMenuBook className="text-[1.5rem] leading-[1.5rem]" />{" "}
+                    Favorite Recipes
+                  </Link>
                 </ul>
               </div>
             )}
