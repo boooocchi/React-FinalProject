@@ -82,7 +82,7 @@ const Header = () => {
             {userMenu && (
               <div
                 ref={menuRef}
-                className="text-blueblack lg:w-[300px] w-[200px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-7 max-xs:w-[170px] right-[-20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] "
+                className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-9 max-xs:w-[200px] max-xs:right-[21%] right-[-20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] "
               >
                 <ul className="px-2 py-5 font-main flex flex-col items-center">
                   <li className="border-b-[2px] pb-1 border-b-blueblack w-[70%] ">
