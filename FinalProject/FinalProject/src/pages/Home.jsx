@@ -78,12 +78,12 @@ const Home = () => {
             opacity: 1,
             transition: { duration: 1.5 }
           }}
-          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] min-h-[450px]"
+          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-xs:aspect-[3/5] min-h-[450px] "
         >
           <img
             src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}
             alt="Homepage background picture"
-            className="object-cover min-h-[450px]"
+            className="object-fit min-h-[450px]  max-xs:aspect-[3/5]"
             onLoad={handleImageLoad}
           />
           <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">

@@ -34,7 +34,7 @@ const RandomMenu = (props) => {
       >
         Random Pick for you
       </motion.h1>
-      <section className="mt-[2rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-7  max-md:gap-x-4 mb-[5rem] max-xs:mb-[3rem] max-xs:mt-[1rem]">
+      <section className="mt-[2rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-7  max-md:gap-x-4 mb-[5rem] max-xs:mb-[5rem] max-xs:mt-[1rem]">
         {randomMenus}
       </section>
     </>
