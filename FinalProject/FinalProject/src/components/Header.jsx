@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/Bi";
+import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slice/loginSlice";
 import { useNavigate } from "react-router";
 import { setData } from "@/store/slice/dataSlice";
 import { Link } from "react-router-dom";
-import { MdMenuBook } from "react-icons/Md";
+import { MdMenuBook } from "react-icons/md";
 
 const Header = () => {
   const dispatch = useDispatch();
