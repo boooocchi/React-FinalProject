@@ -79,7 +79,7 @@ const SearchResult = () => {
   let sectionClassName = "";
   if (!isLoading && !error) {
     sectionClassName =
-      "pt-[1rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-5 max-xs:pt-[3rem] mb-5 max-xs:mb-[4rem] max-xs:pt-1";
+      "pt-[1rem] w-4/5 max-w-[1200px] mx-auto grid grid-cols-2 gap-y-2 gap-x-8 max-xs:grid-cols-1 max-xs:gap-y-5  mb-5 max-xs:mb-[5rem] max-xs:pt-[.5rem]";
   }
 
   // const query = new URLSearchParams(search);
@@ -87,7 +87,7 @@ const SearchResult = () => {
   return (
     <>
       <Header></Header>
-      <h1 className="pt-[6rem] font-main text-center">
+      <h1 className="pt-[7rem] font-main text-center max-xs:pt-[5rem]">
         Search Result with: "{query}"
       </h1>
       <section className={sectionClassName}>
