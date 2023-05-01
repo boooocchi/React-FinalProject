@@ -15,8 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../store/slice/dataSlice";
 
 //picture
-import homeBackgroundPic from "@/assets/homeBackground.jpg";
-import homeBackgroundPic2 from "@/assets/homeBackground2.jpg";
+import homeBackgroundPic from "@/assets/HomeBackground.jpg";
+import homeBackgroundPic2 from "@/assets/HomeBackground2.jpg";
 
 //hooks
 import useFavorite from "../hooks/useFavorite";
