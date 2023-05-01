@@ -14,7 +14,7 @@ const Header = () => {
   const logOutHandler = () => {
     dispatch(setUser(null));
     dispatch(setData(null));
-    navigate("/login");
+    // navigate("/login");
   };
 
   const userMenuHandler = () => {
