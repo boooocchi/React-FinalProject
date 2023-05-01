@@ -31,7 +31,7 @@ const SearchRecipeForm = () => {
   const dietInputRef = useRef();
 
   const inputClass =
-    "p-1 w-[15rem] rounded-md h-7  border border-slategray max-lg:h-6 max-[480px]:w-[85%] mb-1";
+    "p-1 w-[15rem] rounded-md h-7  border border-slategray max-lg:h-7 max-[480px]:w-[85%] mb-1";
 
   const searchInputHandler = (e) => {
     e.preventDefault();

@@ -60,23 +60,23 @@ const Header = () => {
 
   return (
     <header className="fixed w-full  z-10">
-      <nav className="h-16 bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-10">
+      <nav className="h-16 bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
         <div
           className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
           onClick={backHomeHandler}
         >
           <BiRestaurant
-            className="text-[1.7rem] max-xs:text-[1.4rem]
+            className="text-[1.7rem] max-xs:text-[1.6rem]
           ]"
           />
-          <span className="font-title  text-[1.1rem] max-xs:leading-[.9rem] max-xs:text-[0.8rem]">
+          <span className="font-title  text-[1.1rem] max-xs:leading-[.9rem] max-xs:text-[1rem]">
             SMART RECIPE
           </span>
         </div>
         <ul className="flex items-center gap-2 max-xs:gap-[0.1rem]">
           <li className="flex items-center relative " ref={wrapperRef}>
             <BiUserCircle
-              className="text-[1.5rem] max-[480px]:text-[1.3rem] text-blueblack hover:text-white hover:cursor-pointer"
+              className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
               onClick={userMenuHandler}
             />
             {userMenu && (
@@ -90,7 +90,7 @@ const Header = () => {
                       to="/favorites"
                       className="flex items-center justify-center gap-2 hover:text-primary "
                     >
-                      <MdMenuBook className="text-[1.5rem]" /> Favorite Recipes
+                      <MdMenuBook className="text-[1.5rem] " /> Favorite Recipes
                     </Link>
                   </li>
                 </ul>
@@ -98,7 +98,7 @@ const Header = () => {
             )}
           </li>
           <li className="flex items-center" onClick={logOutHandler}>
-            <BiLogOut className="text-[1.5rem] max-[480px]:text-[1.3rem] text-blueblack hover:text-white hover:cursor-pointer" />
+            <BiLogOut className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer" />
           </li>
         </ul>
       </nav>
