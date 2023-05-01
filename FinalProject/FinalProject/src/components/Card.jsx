@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaCarrot, FaLeaf } from "react-icons/Fa";
-import { GiFlour } from "react-icons/Gi";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/Ai";
+import { FaCarrot, FaLeaf } from "react-icons/fa";
+import { GiFlour } from "react-icons/gi";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import {
