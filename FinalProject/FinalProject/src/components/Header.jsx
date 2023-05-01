@@ -5,7 +5,7 @@ import { setUser } from "@/store/slice/loginSlice";
 import { useNavigate } from "react-router";
 import { setData } from "@/store/slice/dataSlice";
 import { Link } from "react-router-dom";
-import { MdMenuBook } from "react-icons/Md";
+// import { MdMenuBook } from "react-icons/Md";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ const Header = () => {
                       to="/favorites"
                       className="flex items-center justify-center gap-2 hover:text-primary "
                     >
-                      <MdMenuBook className="text-[1.5rem]" /> Favorite Recipes
+                      {/* <MdMenuBook className="text-[1.5rem]" /> Favorite Recipes */}
                     </Link>
                   </li>
                 </ul>
