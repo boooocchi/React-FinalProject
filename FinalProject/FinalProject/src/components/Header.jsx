@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-// import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons";
+import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/Bi";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slice/loginSlice";
 import { useNavigate } from "react-router";
 import { setData } from "@/store/slice/dataSlice";
 import { Link } from "react-router-dom";
-// import { MdMenuBook } from "react-icons/Md";
+import { MdMenuBook } from "react-icons/Md";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ const Header = () => {
   const logOutHandler = () => {
     dispatch(setUser(null));
     dispatch(setData(null));
-    // navigate("/login");
   };
 
   const userMenuHandler = () => {
@@ -66,20 +65,20 @@ const Header = () => {
           className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
           onClick={backHomeHandler}
         >
-          {/* <BiRestaurant
+          <BiRestaurant
             className="text-[1.7rem] max-xs:text-[1.4rem]
           ]"
-          /> */}
+          />
           <span className="font-title  text-[1.1rem] max-xs:leading-[.9rem] max-xs:text-[0.8rem]">
             SMART RECIPE
           </span>
         </div>
         <ul className="flex items-center gap-2 max-xs:gap-[0.1rem]">
           <li className="flex items-center relative " ref={wrapperRef}>
-            {/* <BiUserCircle
+            <BiUserCircle
               className="text-[1.5rem] max-[480px]:text-[1.3rem] text-blueblack hover:text-white hover:cursor-pointer"
               onClick={userMenuHandler}
-            /> */}
+            />
             {userMenu && (
               <div
                 ref={menuRef}
@@ -91,7 +90,7 @@ const Header = () => {
                       to="/favorites"
                       className="flex items-center justify-center gap-2 hover:text-primary "
                     >
-                      {/* <MdMenuBook className="text-[1.5rem]" /> Favorite Recipes */}
+                      <MdMenuBook className="text-[1.5rem]" /> Favorite Recipes
                     </Link>
                   </li>
                 </ul>
@@ -99,7 +98,7 @@ const Header = () => {
             )}
           </li>
           <li className="flex items-center" onClick={logOutHandler}>
-            {/* <BiLogOut className="text-[1.5rem] max-[480px]:text-[1.3rem] text-blueblack hover:text-white hover:cursor-pointer" /> */}
+            <BiLogOut className="text-[1.5rem] max-[480px]:text-[1.3rem] text-blueblack hover:text-white hover:cursor-pointer" />
           </li>
         </ul>
       </nav>
