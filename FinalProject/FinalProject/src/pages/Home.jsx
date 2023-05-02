@@ -34,7 +34,7 @@ const Home = () => {
 
   // responsive
   const isTablet = useMediaQuery({ query: "(max-width: 767px)" });
-  const isMobile = useMediaQuery({ query: "{max-width:480px" });
+  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
 
   const key = config2.recipeAPIkey;
   const options = {
@@ -117,7 +117,7 @@ const Home = () => {
         />
       )}
       {datas && !isLoading ? (
-        <RandomMenu datas={datas} />
+        <RandomMenu datas={datas} isMobile={isMobile} />
       ) : (
         <div
           role="status"

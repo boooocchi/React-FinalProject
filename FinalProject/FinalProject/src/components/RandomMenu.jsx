@@ -13,6 +13,7 @@ const RandomMenu = (props) => {
       glutenFree={menu.glutenFree}
       id={menu.id}
       instruction={menu.analyzedInstructions}
+      isMobile={props.isMobile}
     ></Card>
   ));
 

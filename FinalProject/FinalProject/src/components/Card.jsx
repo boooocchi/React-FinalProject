@@ -160,6 +160,7 @@ const Card = (props) => {
           position={cardPosition}
           size={cardSize}
           onClose={closeModalHandler}
+          isMobile={props.isMobile}
         ></Modal>
       )}
       <motion.div

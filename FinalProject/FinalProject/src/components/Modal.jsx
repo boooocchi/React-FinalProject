@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+
 const Backdrop = (props) => {
   return (
     <div
@@ -12,11 +14,14 @@ const Backdrop = (props) => {
   );
 };
 const ModalWindow = (props) => {
-  const x = props.position.cardLeft;
+  let x = props.position.cardLeft;
   const y = props.position.cardTop;
-
-  const w = props.size.width / 2;
+  let w = props.size.width / 2;
   const h = props.size.height / 2;
+  if (props.isMobile) {
+    x = w;
+  }
+
   return (
     <motion.div
       initial={{
@@ -42,6 +47,9 @@ const ModalWindow = (props) => {
 };
 
 const Modal = (props) => {
+  console.log(props.isMobile);
+  // const isMobile = useMediaQuery({ query: "{max-width:480px" });
+
   let ingredientsList;
   let ingredients;
   let instructions;
@@ -81,7 +89,11 @@ const Modal = (props) => {
 
   return (
     <>
-      <ModalWindow position={props.position} size={props.size}>
+      <ModalWindow
+        position={props.position}
+        size={props.size}
+        isMobile={props.isMobile}
+      >
         {props.instruction[0] ? (
           <>
             <FontAwesomeIcon
