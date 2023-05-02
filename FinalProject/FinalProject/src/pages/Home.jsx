@@ -77,7 +77,7 @@ const Home = () => {
             opacity: 1,
             transition: { duration: 1.5 }
           }}
-          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] max-xs:aspect-[3/5] min-h-[450px] "
+          className="md:aspect-[16/9] w-full max-w-[1600px] mx-auto relative overflow-hidden  before:block before:absolute before:w-full before:h-full before:backdrop-blur-[3px] max-md:aspect-[3.5/5] max-xs:aspect-[3/5]  "
         >
           <img
             src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}

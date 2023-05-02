@@ -9,7 +9,7 @@ const Backdrop = (props) => {
   return (
     <div
       onClick={props.onClick}
-      className="fixed h-screen w-[100%]  bg-[rgba(0,0,0,0.4)] z-40 top-0 left-0 "
+      className="fixed h-screen w-full bg-[rgba(0,0,0,0.4)] z-40 top-0 left-0 bottom-0"
     ></div>
   );
 };
@@ -22,13 +22,15 @@ const ModalWindow = (props) => {
     x = w;
   }
 
+  console.log(x, y, w, h);
+
   return (
     <motion.div
       initial={{
         left: x,
         top: y,
         opacity: 0,
-        transform: `translate(-${w}px,-${h}px) scale(0.1)`
+        transform: `translate(-${w}px,-${h}px) scale(0)`
       }}
       animate={{
         position: "fixed",
