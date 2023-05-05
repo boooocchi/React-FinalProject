@@ -1,3 +1,7 @@
 * {
   color: black;
 }
+
+.blur {
+  filter: blur(3px);
+}

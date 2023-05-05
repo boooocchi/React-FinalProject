@@ -54,7 +54,8 @@ const Home = () => {
     dispatch(setData(data));
   };
 
-  const handleImageLoad = () => {
+  const handleImageLoad = (event) => {
+    event.target.classList.add("loaded");
     setIsLoading(false);
   };
   //animation variavle
@@ -82,9 +83,10 @@ const Home = () => {
           <img
             src={isTablet ? homeBackgroundPic2 : homeBackgroundPic}
             alt="Homepage background picture"
-            className="object-fit min-h-[450px]  max-xs:aspect-[3/5]"
+            className="absolute top-0 left-0  max-xs:aspect-[3/5]  w-full h-full object-cover blur"
             onLoad={handleImageLoad}
           />
+
           <div className="absolute w-4/5 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mt-5 ">
             <motion.h1 className="font-title text-blueblack text-[5rem] max-lg:text-[3.5rem] text-center max-lg:-mb-5 lg:-mb-6 max-md:[3.5rem]  max-xs:leading-[2.5rem] max-xs:text-[2.3rem] max-xs:mb-0">
               <motion.span

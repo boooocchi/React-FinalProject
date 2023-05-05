@@ -9,3 +9,7 @@
 html {
   min-width: 280px;
 }
+
+.blur {
+  filter: blur(3px) !important;
+}
