@@ -22,15 +22,13 @@ const ModalWindow = (props) => {
     x = w;
   }
 
-  console.log(x, y, w, h);
-
   return (
     <motion.div
       initial={{
-        left: x,
-        top: y,
+        left: x - w,
+        top: y - h,
         opacity: 0,
-        transform: `translate(-${w}px,-${h}px) scale(0)`
+        transform: `translate(0%,0%) scale(0)`
       }}
       animate={{
         position: "fixed",

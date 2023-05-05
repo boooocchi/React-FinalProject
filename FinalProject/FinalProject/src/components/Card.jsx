@@ -143,7 +143,7 @@ const Card = (props) => {
       height: cardRef.current.clientHeight
     });
     setCardPosition({ cardLeft: cardRect.left, cardTop: cardRect.top });
-
+    console.log(cardRect.left, cardRect.top);
     // Animate ModalWindow to card position
 
     setModal(true);

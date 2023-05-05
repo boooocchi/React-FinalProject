@@ -68,7 +68,7 @@ const Header = () => {
 
   return (
     <header className="fixed w-full  z-10">
-      <nav className="h-16 bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
+      <nav className="h-[3rem] bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
         <div
           className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
           onClick={backHomeHandler}
