@@ -18,9 +18,6 @@ const ModalWindow = (props) => {
   const y = props.position.cardTop;
   let w = props.size.width / 2;
   const h = props.size.height / 2;
-  if (props.isMobile) {
-    x = w;
-  }
 
   return (
     <motion.div
