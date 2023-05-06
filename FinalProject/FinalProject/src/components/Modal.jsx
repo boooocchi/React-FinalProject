@@ -36,7 +36,7 @@ const ModalWindow = (props) => {
 
         transition: { duration: 0.3 }
       }}
-      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-scroll font-main max-w-[1000px] max-xs:w-[90%]"
+      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[80%] min-h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-scroll font-main max-w-[1000px] max-xs:w-[90%]"
     >
       {props.children}
     </motion.div>

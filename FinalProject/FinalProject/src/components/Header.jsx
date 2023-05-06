@@ -68,20 +68,20 @@ const Header = () => {
 
   return (
     <header className="fixed w-full  z-10">
-      <nav className="h-[3rem] bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
+      <nav className="h-[3.2rem] bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
         <div
           className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
           onClick={backHomeHandler}
         >
           <FontAwesomeIcon
             icon={faUtensils}
-            className="text-[1.7rem] max-xs:text-[1.6rem] mr-1"
+            className="text-[1.6rem] max-xs:text-[1.6rem] mr-2 max-xs:mr-1"
           />
           {/* <BiRestaurant
             className="text-[1.7rem] max-xs:text-[1.6rem]
           ]"
           /> */}
-          <span className="font-title  text-[1.1rem] max-xs:leading-[.9rem] max-xs:text-[1rem]">
+          <span className="font-title  text-[1.1rem] max-xs:leading-[1rem] max-xs:text-[1.1rem]">
             SMART RECIPE
           </span>
         </div>
@@ -89,7 +89,7 @@ const Header = () => {
           <li className="flex items-center relative " ref={wrapperRef}>
             <FontAwesomeIcon
               icon={faUser}
-              className="text-[1.5rem] mr-4 text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
+              className="text-[1.4rem] mr-4 text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-3"
               onClick={userMenuHandler}
             />
             {/* <BiUserCircle

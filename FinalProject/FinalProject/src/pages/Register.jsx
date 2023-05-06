@@ -121,7 +121,7 @@ const Register = () => {
   };
   return (
     <>
-      <section className="bg-[url('@/assets/RegisterPageBackground.jpg')] h-screen flex items-center  bg-cover bg-bottom min-w-[300px]">
+      <section className="bg-[url('@/assets/RegisterPageBackground.jpg')] min-h-screen h-full w-screen flex items-center  bg-cover bg-bottom text-blueblack min-w-[300px]">
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -134,87 +134,86 @@ const Register = () => {
           pauseOnHover
           theme="light"
         />
-        <div className="w-full h-full flex items-center backdrop-blur-sm">
-          <div className="w-[750px]  flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white] max-md:w-[630px] max-sm:aspect-[3/4] max-sm:flex-col max-sm:relative  max-sm:justify-center max-sm:w-[95%]">
-            <form
-              action=""
-              className="flex flex-col w-[40%] font-main items-center gap-[0.4rem] max-sm:relative max-sm:z-10 max-sm:bg-[rgba(255,255,255,0.7)] max-sm:rounded-lg max-sm:py-5 max-sm:px-4 max-sm:w-4/5 max-sm:h-[85%] max-sm:justify-center max-xs:gap-[0.1rem] max-md:gap-[0.2rem]"
+
+        <div className="w-[85%] max-w-[1000px] xl:max-h-[800px] lg:max-h-[700px] md:max-h-[580px]   flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white]  max-md:aspect-[3/4] max-sm:flex-col max-md:relative  max-md:justify-center max-md:w-[85%] max-xs:w-[95%] max-xs:h-auto max-lg:max-h-[90%] my-[5%]">
+          <form
+            action=""
+            className="p-4 flex flex-col w-[40%] font-main items-center gap-[0.3rem] max-lg:gap-[0.1rem] max-md:relative max-md:z-10 max-md:bg-[rgba(255,255,255,0.7)] max-md:rounded-lg max-md:py-5 max-md:px-4 max-md:w-4/5 max-md:h-4/5 max-md:justify-center "
+          >
+            <h2 className="font-main mb-[-.5rem] max-xs:text-[0.9rem] max-md:mb-[-0.5rem]">
+              welcome to
+            </h2>
+            <h1 className="mb-4 font-title text-[2rem] max-xs:mb-2 max-xs:text-[1.5rem] max-md:mb-2">
+              SmartRecipe
+            </h1>
+            <label
+              htmlFor="email"
+              className="text-center text-[1.1rem] -mb-1 max-xs:text-[0.9rem]"
             >
-              <h2 className="font-main mb-[-.5rem] max-xs:text-[0.9rem] max-md:mb-[-1rem]">
-                welcome to
-              </h2>
-              <h1 className="mb-5 font-title text-[2rem] max-xs:mb-2 max-xs:text-[1.5rem] max-md:mb-2">
-                SmartRecipe
-              </h1>
-              <label
-                htmlFor="email"
-                className="text-center text-[1.1rem] -mb-1 max-xs:text-[0.9rem]"
-              >
-                Email
-              </label>
-              <Input
-                ref={emailRef}
-                type="email"
-                value={emailValue}
-                onChange={emailInputHandler}
-              />
-              {!emailValidation && isSubmitted && (
-                <p className=" text-[red] text-[0.9rem] -mt-4">
-                  This email is invalid
-                </p>
-              )}
-              <label
-                htmlFor="password"
-                className="-mb-1 text-center text-[1.1rem] max-xs:text-[0.9rem]"
-              >
-                Password
-              </label>
-              <Input
-                ref={passRef}
-                type="password"
-                value={passValue}
-                onChange={passInputHandler}
-              />
-              {!passValidation && isSubmitted && (
-                <p className=" text-[red] text-[0.9rem] -mt-4">
-                  password has be longer than 8 letters
-                </p>
-              )}
-              <label
-                htmlFor="password2"
-                className=" -mb-1 text-center text-[1.1rem]  max-xs:text-[0.9rem]"
-              >
-                Confirm Password
-              </label>
-              <Input
-                ref={passRef2}
-                type="password"
-                value={passValue2}
-                onChange={pass2Handler}
-              />
+              Email
+            </label>
+            <Input
+              ref={emailRef}
+              type="email"
+              value={emailValue}
+              onChange={emailInputHandler}
+            />
+            {!emailValidation && isSubmitted && (
+              <p className=" text-[red] text-[0.9rem] -mt-4">
+                This email is invalid
+              </p>
+            )}
+            <label
+              htmlFor="password"
+              className="-mb-1 text-center text-[1.1rem] max-xs:text-[0.9rem]"
+            >
+              Password
+            </label>
+            <Input
+              ref={passRef}
+              type="password"
+              value={passValue}
+              onChange={passInputHandler}
+            />
+            {!passValidation && isSubmitted && (
+              <p className=" text-[red] text-[0.9rem] -mt-4">
+                password has be longer than 8 letters
+              </p>
+            )}
+            <label
+              htmlFor="password2"
+              className=" -mb-1 text-center text-[1.1rem]  max-xs:text-[0.9rem]"
+            >
+              Confirm Password
+            </label>
+            <Input
+              ref={passRef2}
+              type="password"
+              value={passValue2}
+              onChange={pass2Handler}
+            />
 
-              <Button
-                onClick={registerHandler}
-                type="submit"
-                disable={disableBtn}
-              >
-                Sign up
-              </Button>
-              <Link
-                to="/login"
-                className="hover:text-primary  max-xs:text-[0.9rem]"
-              >
-                ← Login
-              </Link>
-            </form>
+            <Button
+              onClick={registerHandler}
+              type="submit"
+              disable={disableBtn}
+            >
+              Sign up
+            </Button>
+            <Link
+              to="/login"
+              className="hover:text-primary  max-xs:text-[0.9rem]"
+            >
+              ← Login
+            </Link>
+          </form>
 
-            <div className="w-[60%] max-sm:absolute max-sm:z-1 max-sm:w-full">
-              <img
-                className="  w-full"
-                src={registerPage}
-                alt="register page picture"
-              />
-            </div>
+          <div className="w-[60%] max-md:absolute max-md:z-1 max-md:w-full">
+            <img
+              className="  w-full"
+              src={registerPage}
+              alt="register page picture"
+            />
           </div>
         </div>
       </section>
