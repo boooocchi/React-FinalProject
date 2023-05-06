@@ -142,9 +142,12 @@ const Card = (props) => {
       width: cardRef.current.clientWidth,
       height: cardRef.current.clientHeight
     });
-    setCardPosition({ cardLeft: cardRect.left, cardTop: cardRect.top });
-    console.log(cardRect.left, cardRect.top);
-    // Animate ModalWindow to card position
+    setCardPosition({
+      cardLeft: cardRef.current.offsetLeft,
+      cardTop: cardRect.top
+    });
+    // setCardPosition({ cardLeft: cardRect.left, cardTop: cardRect.top });
+    console.log(cardRect);
 
     setModal(true);
   };
@@ -224,5 +227,4 @@ const Card = (props) => {
     // </div>
   );
 };
-
 export default Card;

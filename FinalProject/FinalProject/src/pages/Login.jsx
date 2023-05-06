@@ -110,7 +110,7 @@ const Login = () => {
           theme="light"
         />
 
-        <div className=" w-[80%] max-w-[1000px] xl:max-h-[800px] lg:max-h-[700px] md:max-h-[550px]   flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white]  max-md:aspect-[3/4] max-sm:flex-col max-md:relative  max-md:justify-center max-md:w-[85%] max-xs:w-[95%] max-xs:h-auto max-lg:max-h-[90%] my-[5%]">
+        <div className=" w-[85%] max-w-[1000px] xl:max-h-[800px] lg:max-h-[700px] md:max-h-[550px]   flex items-center mx-auto rounded-xl overflow-hidden shadow-lg aspect-[3/2] bg-[white]  max-md:aspect-[3/4] max-sm:flex-col max-md:relative  max-md:justify-center max-md:w-[85%] max-xs:w-[95%] max-xs:h-auto max-lg:max-h-[90%] my-[5%]">
           <form
             action=""
             className="p-3 flex flex-col w-[40%] font-main items-center gap-[0.3rem] max-lg:gap-[0.1rem] max-md:relative max-md:z-10 max-md:bg-[rgba(255,255,255,0.7)] max-md:rounded-lg max-md:py-5 max-md:px-4 max-md:w-4/5 max-md:h-4/5 max-md:justify-center "

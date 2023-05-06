@@ -14,6 +14,8 @@ const Backdrop = (props) => {
   );
 };
 const ModalWindow = (props) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
+
   let x = props.position.cardLeft;
   const y = props.position.cardTop;
   let w = props.size.width / 2;
@@ -22,21 +24,21 @@ const ModalWindow = (props) => {
   return (
     <motion.div
       initial={{
-        left: x - w,
+        left: isMobile ? x : x - w,
         top: y - h,
         opacity: 0,
-        transform: `translate(0%,0%) scale(0)`
+        scale: 0
       }}
       animate={{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
         opacity: 1,
-        transform: "translate(-50%, -50%)",
-
+        scale: 1,
+        left: "50%",
+        top: "50%",
+        translateX: "-50%",
+        translateY: "-50%",
         transition: { duration: 0.3 }
       }}
-      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[80%] min-h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-scroll font-main max-w-[1000px] max-xs:w-[90%]"
+      className="fixed w-[70%] px-10 py-10 z-50 bg-[rgba(255,255,255,0.95)] h-[85%] max-h-[600px] min-h-[300px] rounded-md overflow-scroll font-main max-w-[1000px] max-xs:w-[90%]"
     >
       {props.children}
     </motion.div>
@@ -44,9 +46,6 @@ const ModalWindow = (props) => {
 };
 
 const Modal = (props) => {
-  console.log(props.isMobile);
-  // const isMobile = useMediaQuery({ query: "{max-width:480px" });
-
   let ingredientsList;
   let ingredients;
   let instructions;
@@ -116,5 +115,4 @@ const Modal = (props) => {
     </>
   );
 };
-
 export default Modal;
