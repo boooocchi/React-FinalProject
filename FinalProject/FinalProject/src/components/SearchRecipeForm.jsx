@@ -31,7 +31,7 @@ const SearchRecipeForm = () => {
   const dietInputRef = useRef();
 
   const inputClass =
-    "p-1 w-[15rem] rounded-md h-7  border border-slategray max-md:h-8 max-md:w-[80%]  mb-1";
+    "px-3 py-2 w-full rounded-md  border border-slategray  mb-1 ";
 
   const searchInputHandler = (e) => {
     e.preventDefault();
@@ -45,49 +45,43 @@ const SearchRecipeForm = () => {
     // setSearchParams({ query: searchInputRef.current.value });
   };
   return (
-    <form className="w-full flex flex-col items-center text-blueblack mt-5 max-xs:mt-3 font-main max-[480px]:items-center">
-      <label htmlFor="keyword" className="max-xs:text-[0.9rem]">
-        Search Keyword:
-      </label>
+    <form className="w-[70%] flex flex-col items-center text-blueblack mt-8 max-w-[500px] max-xs:mt-3 font-main max-[480px]:items-center gap-3 max-md:w-[100%]">
       <input
         ref={searchInputRef}
         id="keyword"
         name="keyword"
         type="text"
         className={inputClass}
-      />
-      <label htmlFor="include" className="max-xs:text-[0.9rem]">
-        Include Ingredients:
-      </label>
-      <input
-        id="include"
-        name="include"
-        ref={includeInputRef}
-        type="text"
-        className={inputClass}
-      />
-      <label htmlFor="exclude" className="max-xs:text-[0.9rem]">
-        Exclude Ingredients:
-      </label>
-      <input
-        id="exclude"
-        name="exclude"
-        ref={excludeInputRef}
-        type="text"
-        className={inputClass}
+        placeholder="Search Keyword"
       />
 
-      <label htmlFor="diet" className="max-xs:text-[0.9rem]">
-        Choose a diet type:
-      </label>
+      <div className="flex gap-3 w-full">
+        <input
+          id="include"
+          name="include"
+          ref={includeInputRef}
+          type="text"
+          className={inputClass}
+          placeholder="Include Ingredients"
+        />
+        <input
+          id="exclude"
+          name="exclude"
+          ref={excludeInputRef}
+          type="text"
+          className={inputClass}
+          placeholder="Exclude Ingredients"
+        />
+      </div>
+
       <select
         id="diet"
         name="diet"
-        className="w-[15rem] px-1 rounded-md  border border-slategray max-lg:h-8 max-md:w-[80%] leading-10"
+        className=" px-2 py-2 mx-md:py-1 flex items-center rounded-md  border border-slategray w-full leading-10"
         ref={dietInputRef}
       >
         <option value="" className="">
-          ---
+          Choose a diet type:
         </option>
         {dietsOptions}
       </select>

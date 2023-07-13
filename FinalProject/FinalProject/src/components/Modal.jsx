@@ -97,6 +97,11 @@ const Modal = (props) => {
               className="absolute right-6 top-5"
               onClick={props.onClose}
             />
+            <div className="flex mt-3 mb-5 justify-center w-full">
+              <div className="w-1/2 rounded-lg overflow-hidden min-w-[200px]">
+                <img src={props.img} alt="" className="w-full min-w-[200px]" />
+              </div>
+            </div>
             <h2 className="text-[1.2rem] mb-2 font-title">Ingredients</h2>
             <div
               className="grid grid-cols-2  mb-7 gap-y-2  gap-x-1 w-[90%]

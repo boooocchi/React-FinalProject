@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 // import { BiRestaurant, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slice/loginSlice";
@@ -68,9 +68,9 @@ const Header = () => {
 
   return (
     <header className="fixed w-full  z-10">
-      <nav className="h-[3.2rem] bg-accent w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
+      <nav className="h-[4rem] bg-[rgba(95,102,110,0.5)] w-full flex items-center justify-between px-9 max-xs:px-4 max-xs:h-14">
         <div
-          className="flex items-center gap-1 hover:cursor-pointer  text-blueblack  hover:text-[white]"
+          className="flex items-center gap-1 hover:cursor-pointer  text-white  hover:text-blueblack"
           onClick={backHomeHandler}
         >
           <FontAwesomeIcon
@@ -89,17 +89,14 @@ const Header = () => {
           <li className="flex items-center relative " ref={wrapperRef}>
             <FontAwesomeIcon
               icon={faUser}
-              className="text-[1.4rem] mr-4 text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-3"
+              className="text-[1.4rem] mr-4 hover:text-blueblack text-white hover:cursor-pointer max-xs:mr-3"
               onClick={userMenuHandler}
             />
-            {/* <BiUserCircle
-              className="text-[1.5rem] max-[480px]:text-[1.5rem] text-blueblack hover:text-white hover:cursor-pointer max-xs:mr-2"
-              onClick={userMenuHandler}
-            /> */}
+
             {userMenu && (
               <div
                 ref={menuRef}
-                className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-white rounded-lg top-10 max-xs:top-10 max-xs:w-[200px] max-xs:right-[10%] right-[20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] max-md:right-[25%]"
+                className="text-blueblack lg:w-[300px] w-[250px] h-[300px] absolute shadow-lg bg-[rgba(250,250,250,0.7)] rounded-lg top-10 max-xs:top-10 max-xs:w-[200px] max-xs:right-[10%] right-[20%] before:content-[` `] before:block before:absolute  before:w-0 before:h-0 before:border-solid before:border-r-[10px] before:border-l-[10px] before:border-r-[transparent] before:border-l-[transparent] before:border-b-[10px] before:border-b-white before:top-[-10px] before:right-[3%] max-md:right-[25%]"
               >
                 <ul className="px-2 py-6 font-main flex flex-col items-center">
                   <Link
@@ -119,7 +116,7 @@ const Header = () => {
           <li className="flex items-center" onClick={logOutHandler}>
             <FontAwesomeIcon
               icon={faRightFromBracket}
-              className="text-[1.4rem] text-blueblack hover:text-white hover:cursor-pointer"
+              className="text-[1.4rem] hover:text-blueblack text-white hover:cursor-pointer"
             />
           </li>
         </ul>

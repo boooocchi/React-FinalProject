@@ -14,6 +14,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Modal from "@/components/Modal";
 
 const Card = (props) => {
+  console.log(props);
   // const cardRef = useRef(null);
   let gluten = <GiFlour color="rgb(133,141,149)"></GiFlour>;
   let vegetarian = <FaCarrot color="rgb(133, 141, 149)"></FaCarrot>;
@@ -164,6 +165,7 @@ const Card = (props) => {
           size={cardSize}
           onClose={closeModalHandler}
           isMobile={props.isMobile}
+          img={props.img}
         ></Modal>
       )}
       <motion.div
