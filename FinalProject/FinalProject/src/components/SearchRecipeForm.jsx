@@ -31,7 +31,7 @@ const SearchRecipeForm = () => {
   const dietInputRef = useRef();
 
   const inputClass =
-    "px-3 py-2 w-full rounded-md  border border-slategray  mb-1 ";
+    "px-3 py-2 w-full rounded-lg  border border-slategray  mb-1 ";
 
   const searchInputHandler = (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const SearchRecipeForm = () => {
     // setSearchParams({ query: searchInputRef.current.value });
   };
   return (
-    <form className="w-[70%] flex flex-col items-center text-blueblack mt-8 max-w-[500px] max-xs:mt-3 font-main max-[480px]:items-center gap-3 max-md:w-[100%]">
+    <form className="w-[70%] flex flex-col items-center text-blueblack mt-8 max-w-[500px] max-xs:mt-3 font-main max-[480px]:items-center gap-3 max-[480px]:gap-1 max-md:w-[100%]">
       <input
         ref={searchInputRef}
         id="keyword"
@@ -77,7 +77,7 @@ const SearchRecipeForm = () => {
       <select
         id="diet"
         name="diet"
-        className=" px-2 py-2 mx-md:py-1 flex items-center rounded-md  border border-slategray w-full leading-10"
+        className=" px-2 py-2 mx-md:py-1 flex items-center rounded-lg  border border-slategray w-full leading-10"
         ref={dietInputRef}
       >
         <option value="" className="">
